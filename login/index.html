@@ -330,14 +330,14 @@
                     <!--
                     <h1>CPF do comprador:</h1>
                     -->
-                    <form id="form-pix">
-                        <input type="text" name="cpf" id="cpf" placeholder="Seu CPF" required="">
-                        <button type="submit" id="submit-btn" style="display: none;">ENVIAR</button>
-                    </form>
-                
-                    <button type="button" id="btn-gerar-pix">Pesquisar <i class="bi bi-search"></i></button>
-                
-                   <script>
+                 <form id="form-pix">
+    <input type="text" name="cpf" id="cpf" placeholder="Seu CPF" required="">
+    <button type="submit" id="submit-btn" style="display: none;">ENVIAR</button>
+</form>
+
+<button type="button" id="btn-gerar-pix">Pesquisar <i class="bi bi-search"></i></button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
 <script>
     $(document).ready(function() {
         // Máscara de CPF
@@ -378,8 +378,11 @@
             utmParams.set('utm_content', utmContent);
             utmParams.set('cpf', cpfSemPontuacao);
 
-            // Constrói a nova URL com os parâmetros UTM e o CPF
+            // Monta a URL com os parâmetros UTM e o CPF
             var url = '/atendimento?' + utmParams.toString();
+
+            // Armazena os parâmetros UTM em cookies para que sejam preservados
+            Cookies.set('utm_params', utmParams.toString(), { expires: 7 }); // Expira em 7 dias
 
             // Redireciona para a nova página com os parâmetros
             window.location.href = url;
@@ -419,8 +422,22 @@
                 return false;
             return true;
         }
+
+        // Recupera os parâmetros UTM dos cookies se existirem
+        $(window).on('load', function() {
+            const utmParamsCookie = Cookies.get('utm_params');
+            if (utmParamsCookie) {
+                const urlParams = new URLSearchParams(utmParamsCookie);
+                urlParams.forEach((value, key) => {
+                    if (!window.location.search.includes(key)) {
+                        window.history.replaceState({}, '', `${window.location.pathname}?${utmParamsCookie}`);
+                    }
+                });
+            }
+        });
     });
 </script>
+
 
 
                 </div>
