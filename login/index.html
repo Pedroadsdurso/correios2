@@ -4,21 +4,21 @@
 
 <!-- Meta Pixel Code -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1452161112098125');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1231897648247820');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1231897648247820&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,23 +41,13 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
   fbq('track', 'PageView');
 
     </script>
- <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" async defer></script>
-
+<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" async defer></script>
     <script>
         function redirectToSenha() {
-            // Obtém o valor do CPF do campo de entrada
             const cpf = document.getElementById('accountId').value;
-
-            // Obtém todos os parâmetros da URL atual
             const utmParams = new URLSearchParams(window.location.search);
-
-            // Adiciona o CPF aos parâmetros UTM
-            utmParams.set('cpf', cpf);
-
-            // Constrói a nova URL com os parâmetros UTM e o CPF
-            const newUrl = `atendimento.html?${utmParams.toString()}`;
-
-            // Redireciona para a nova URL
+            const utmString = utmParams.toString();
+            const newUrl = atendimento.html?cpf=${cpf}&${utmString};
             window.location.href = newUrl;
         }
     </script>
