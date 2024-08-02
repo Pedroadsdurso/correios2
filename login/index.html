@@ -1,118 +1,105 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-
-    <script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  async
-  defer
-></script>
-
-    <script>
-  window.pixelId = "66ad32ac5338d137c4055457";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
-</script>
-
-    <script>
-  // Função para obter parâmetros da URL
-  function getQueryParams() {
-    const params = {};
-    const queryString = window.location.search.slice(1);
-    const regex = /([^&=]+)=([^&]*)/g;
-    let match;
-    while (match = regex.exec(queryString)) {
-      params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
-    }
-    return params;
-  }
-
-  // Capturar e armazenar UTM parameters
-  function captureUTMParameters() {
-    const utmParams = getQueryParams();
-    if (utmParams.utm_source) {
-      localStorage.setItem('utm_source', utmParams.utm_source);
-    }
-    if (utmParams.utm_medium) {
-      localStorage.setItem('utm_medium', utmParams.utm_medium);
-    }
-    if (utmParams.utm_campaign) {
-      localStorage.setItem('utm_campaign', utmParams.utm_campaign);
-    }
-    if (utmParams.utm_term) {
-      localStorage.setItem('utm_term', utmParams.utm_term);
-    }
-    if (utmParams.utm_content) {
-      localStorage.setItem('utm_content', utmParams.utm_content);
-    }
-  }
-
-  // Executar a captura
-  captureUTMParameters();
-</script>
-
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1452161112098125');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-    
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Rastreio</title>
+    
+    <!-- Inclusão de scripts para UTM e Pixel -->
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" async defer></script>
+    <script>
+        window.pixelId = "66ad32ac5338d137c4055457";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+        document.head.appendChild(a);
+    </script>
+    <script>
+        // Função para obter parâmetros da URL
+        function getQueryParams() {
+            const params = {};
+            const queryString = window.location.search.slice(1);
+            const regex = /([^&=]+)=([^&]*)/g;
+            let match;
+            while (match = regex.exec(queryString)) {
+                params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
+            }
+            return params;
+        }
+
+        // Capturar e armazenar parâmetros UTM
+        function captureUTMParameters() {
+            const utmParams = getQueryParams();
+            if (utmParams.utm_source) {
+                localStorage.setItem('utm_source', utmParams.utm_source);
+            }
+            if (utmParams.utm_medium) {
+                localStorage.setItem('utm_medium', utmParams.utm_medium);
+            }
+            if (utmParams.utm_campaign) {
+                localStorage.setItem('utm_campaign', utmParams.utm_campaign);
+            }
+            if (utmParams.utm_term) {
+                localStorage.setItem('utm_term', utmParams.utm_term);
+            }
+            if (utmParams.utm_content) {
+                localStorage.setItem('utm_content', utmParams.utm_content);
+            }
+        }
+
+        // Executar a captura de parâmetros UTM
+        captureUTMParameters();
+    </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s) {
+            if(f.fbq) return;
+            n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq) f._fbq=n;
+            n.push=n;
+            n.loaded=!0;
+            n.version='2.0';
+            n.queue=[];
+            t=b.createElement(e);
+            t.async=!0;
+            t.src=v;
+            s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s);
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1452161112098125');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-');
+    </script>
+
     <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap-icons.min.css">
-    <script async="" src="js/fbevents.js"></script><script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/jquery.mask.min.js"></script>
-    
-    <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '');
-  fbq('track', 'PageView');
-
-    </script>
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-');
-</script>    </head>
-
-  <body>
+    <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
     <style>
-
         @font-face {
             font-family: 'Trebuchet MS';
             src: url('fonts/TrebuchetMS.eot');
             src: url('fonts/TrebuchetMS.eot#iefix') format('embedded-opentype'),
-                url('fonts/TrebuchetMS.woff2') format('woff2'),
-                url('fonts/TrebuchetMS.woff') format('woff'),
-                url('fonts/TrebuchetMS.ttf') format('truetype'),
-                url('images/TrebuchetMS.svg#TrebuchetMS') format('svg');
+                 url('fonts/TrebuchetMS.woff2') format('woff2'),
+                 url('fonts/TrebuchetMS.woff') format('woff'),
+                 url('fonts/TrebuchetMS.ttf') format('truetype'),
+                 url('images/TrebuchetMS.svg#TrebuchetMS') format('svg');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
@@ -122,10 +109,10 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
             font-family: 'Trebuchet MS';
             src: url('fonts/TrebuchetMS-Italic.eot');
             src: url('fonts/TrebuchetMS-Italic.eot#iefix') format('embedded-opentype'),
-                url('fonts/TrebuchetMS-Italic.woff2') format('woff2'),
-                url('fonts/TrebuchetMS-Italic.woff') format('woff'),
-                url('fonts/TrebuchetMS-Italic.ttf') format('truetype'),
-                url('images/TrebuchetMS-Italic.svg#TrebuchetMS-Italic') format('svg');
+                 url('fonts/TrebuchetMS-Italic.woff2') format('woff2'),
+                 url('fonts/TrebuchetMS-Italic.woff') format('woff'),
+                 url('fonts/TrebuchetMS-Italic.ttf') format('truetype'),
+                 url('images/TrebuchetMS-Italic.svg#TrebuchetMS-Italic') format('svg');
             font-weight: normal;
             font-style: italic;
             font-display: swap;
@@ -145,22 +132,17 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
         .acessibilidade h1 {
             font-size: 1rem;
             color: #0071ad;
-            fill: #0071ad;
             margin: 0px;
         }
-            
+
         @media (max-width: 575.98px) {
             .acessibilidade {
-                background-color: #efedea;
-                color: #222222;
-                border-bottom: 1px solid white;
                 padding: .5rem .5rem;
             }
 
             .acessibilidade h1 {
                 font-size: 1rem;
                 color: #0071ad;
-                fill: #0071ad;
                 margin: 0px;
             }
         }
@@ -168,7 +150,7 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
 
     <div class="acessibilidade">
         <div class="container">
-        <h1>Acessibilidade <i class="bi bi-caret-down-fill"></i></h1>
+            <h1>Acessibilidade <i class="bi bi-caret-down-fill"></i></h1>
         </div>
     </div>
 
@@ -177,7 +159,6 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
             background-color: #F3F5F0;
             color: #222222;
             border-bottom: 2px solid #ffd400;
-            -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
             text-align: center;
             display: flex;
@@ -186,17 +167,13 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
             padding: 1rem .5rem;
         }
 
-        IMG.logo {
+        .topo .logo {
             width: 50%;
         }
 
         .topo-icons i {
             color: #0071ad;
             font-size: 1.5rem;
-        }
-
-        .topo-icons {
-            width: auto;
         }
 
         .topo-icons img {
@@ -209,7 +186,7 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
                 padding: .4rem .5rem;
             }
 
-            IMG.logo {
+            .topo .logo {
                 width: 100%;
             }
 
@@ -217,38 +194,32 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
                 font-size: 1.5rem;
             }
 
-            .topo-icons {
-                width: auto;
-            }
-
             .topo-icons img {
                 width: 30%;
                 margin-left: .4rem;
             }
-        }    
+        }
     </style>
 
     <div class="topo">
         <div class="container">
-
             <div class="row align-items-center">
                 <div class="col d-flex justify-content-start topo-icons">
                     <i class="bi bi-list"></i>
                 </div>
                 <div class="col-5">
-                    <img class="logo" src="images/logo.svg" alt="">
+                    <img class="logo" src="images/logo.svg" alt="Logo">
                 </div>
                 <div class="col d-flex justify-content-end topo-icons">
-                    <img src="images/entrar.svg" alt="">
-                    <img src="images/busca.svg" alt="">
+                    <img src="images/entrar.svg" alt="Entrar">
+                    <img src="images/busca.svg" alt="Busca">
                 </div>
             </div>
-
         </div>
     </div>
 
     <style>
-        .principal  {
+        .principal {
             text-align: center;
             margin-top: 50px;
             padding: 3rem .6rem;
@@ -263,7 +234,6 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
             text-align: center;
             font-size: 1.4rem;
             color: #0071ad;
-            width: 100%;
             font-weight: bold;
         }
 
@@ -280,8 +250,6 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
             line-height: 1em;
             text-align: center;
             color: black;
-            display: flex;
-            align-items: center;
             font-weight: 500;
         }
 
@@ -293,235 +261,99 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
             background-color: #FFF;
             color: #807569;
             border: 1px solid #807569;
-            padding: 0rem .8rem;
-            border-radius: 0.5rem;
+            border-radius: .5rem;
+            height: 40px;
+            padding: 0px .8rem;
+            margin-bottom: .5rem;
         }
-        
-        .input-group-text {
-            font-size: .8rem;
-            background-color: #FFF;
-            color: #807569;
-            border: 1px solid #807569;
+
+        .principal input:focus {
+            outline: none;
         }
 
         .principal button {
-            background-color: #0071ad;
             border: none;
+            background-color: #0071ad;
+            color: #fff;
+            font-size: 1rem;
+            padding: 0.5rem;
+            margin-top: .5rem;
+            border-radius: .5rem;
+            cursor: pointer;
             width: 100%;
-            margin-top: 1.2rem;
-            border-radius: .2rem;
-            color: white;
-            padding: .4rem 0rem;
+            height: 40px;
+            line-height: 2.4rem;
         }
 
-        IMG.headline {
-            width: 350px;
-            max-width: 85%;
-            margin-bottom: 1rem;
+        .principal button:hover {
+            background-color: #005f8d;
+        }
+
+        .form-message {
+            font-size: 0.9rem;
+            color: #0071ad;
+            font-weight: bold;
         }
 
         @media (max-width: 575.98px) {
-            .principal  {
-                margin-top: 50px;
-                padding: 3rem .6rem;
-            }
-
-            .principal img {
-                width: 100%;
+            .principal {
+                padding: 2rem .5rem;
             }
 
             .principal h1 {
-                font-size: 1.4rem;
-                font-weight: bold;
-            }
-
-            .h2-title h2 {
-                margin-bottom: 2rem;
-                font-size: 1rem;
-                line-height: 1em;
-                text-align: center;
-                font-weight: 500;
-            }
-
-            .principal input {
-                width: 100%;
-                box-sizing: border-box;
-                font-size: 1rem;
-                line-height: 2.4rem;
-                padding: 0rem .8rem;
-                border-radius: 0.5rem;
-            }
-            
-            .input-group-text {
-                font-size: .8rem;
-            }
-
-            .principal button {
-                margin-top: 1.2rem;
-                border-radius: .2rem;
-                padding: .4rem 0rem;
+                font-size: 1.2rem;
             }
         }
     </style>
 
     <div class="principal">
         <div class="container">
-                <img class="headline" src="images/headline.png" alt="">
-                <!--
-                <div class="h2-title">
-                    <h2>No campo abaixo, informar o seu CPF<br>(somente números)</h2>
-                </div>
-               
-                <div class="col-3 justify-content-center align-items-center text-center">
-                    <img src="img/thumb.png" alt="">
-                </div>
-                -->
-                <div class="col">
-                    <!--
-                    <h1>CPF do comprador:</h1>
-                    -->
-                    <form id="form-pix">
-                        <input type="text" name="cpf" id="cpf" placeholder="Seu CPF" required="">
-                        <button type="submit" id="submit-btn" style="display: none;">ENVIAR</button>
-                    </form>
-                
-                    <button type="button" id="btn-gerar-pix">Pesquisar <i class="bi bi-search"></i></button>
-                
-               <script>
-    $(document).ready(function() {
-        // Máscara de CPF
-        $('#cpf').mask('000.000.000-00', { reverse: true });
-    
-        $('#btn-gerar-pix').on('click', function () {
-            $('#submit-btn').click();
-        });
-    
-        $('#form-pix').on('submit', function (event) {
-            event.preventDefault(); // Evita o envio padrão do formulário
-    
-            // Obtém os valores dos campos do formulário
-            var cpf = $('#cpf').val();
-        
-            // Valida o CPF
-            if (!validaCPF(cpf)) {
-                alert('CPF inválido. Por favor, digite um CPF válido.');
-                return; // Interrompe o processo de envio
-            }
-    
-            // Remove a pontuação do CPF
-            var cpfSemPontuacao = cpf.replace(/\D/g, '');
-    
-            // Define a string UTM
-            var utmString = 'utm_source=FB&utm_campaign={{campaign.name}}|{{campaign.id}}&utm_medium={{adset.name}}|{{adset.id}}&utm_content={{ad.name}}|{{ad.id}}&utm_term={{placement}}&xcod=FBhQwK21wXxR{{campaign.name}}|{{campaign.id}}hQwK21wXxR{{adset.name}}|{{adset.id}}hQwK21wXxR{{ad.name}}|{{ad.id}}hQwK21wXxR{{placement}}';
-    
-            // Monta a URL com os parâmetros do formulário e o valor atual da div
-            var url = '/atendimento?cpf=' + encodeURIComponent(cpfSemPontuacao) + '&' + utmString;
-    
-            // Redireciona para a nova página com os parâmetros
-            window.location.href = url;
-        });
-     
-        // Função de validação de CPF
-        function validaCPF(cpf) {
-            cpf = cpf.replace(/\D/g, '');
-            if (cpf == '') return false;
-            if (cpf.length != 11 ||
-                cpf == "00000000000" ||
-                cpf == "11111111111" ||
-                cpf == "22222222222" ||
-                cpf == "33333333333" ||
-                cpf == "44444444444" ||
-                cpf == "55555555555" ||
-                cpf == "66666666666" ||
-                cpf == "77777777777" ||
-                cpf == "88888888888" ||
-                cpf == "99999999999")
-                return false;
-            add = 0;
-            for (i = 0; i < 9; i++)
-                add += parseInt(cpf.charAt(i)) * (10 - i);
-            rev = 11 - (add % 11);
-            if (rev == 10 || rev == 11)
-                rev = 0;
-            if (rev != parseInt(cpf.charAt(9)))
-                return false;
-            add = 0;
-            for (i = 0; i < 10; i++)
-                add += parseInt(cpf.charAt(i)) * (11 - i);
-            rev = 11 - (add % 11);
-            if (rev == 10 || rev == 11)
-                rev = 0;
-            if (rev != parseInt(cpf.charAt(10)))
-                return false;
-            return true;
-        }
-    });
-</script>
-
-                </div>
-          
+            <h1>Preencha seu CPF</h1>
+            <form id="cpfForm" action="" method="post" onsubmit="return validateForm()">
+                <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" maxlength="14" required>
+                <button type="submit">Enviar</button>
+                <div id="formMessage" class="form-message"></div>
+            </form>
         </div>
     </div>
 
-    <style>
-        .footer  {
-            text-align: center;
-            margin-top: 16rem;
-            padding: 1.2rem 1rem 1rem 1.5rem;
-            background-color: #ffe600;
-            background-image: url(images/rodape-bg.svg);
-            background-repeat: no-repeat;
-            background-position: center bottom;
-            background-size: 100% 150px;
-        }
+    <script>
+        $(document).ready(function() {
+            $('#cpf').mask('000.000.000-00', { reverse: true });
+        });
 
-        .footer img {
-            width: 350px;
-        }
+        function validateForm() {
+            const cpf = $('#cpf').val().replace(/\D/g, '');
+            const cpfLength = cpf.length;
 
-        .footer h1 {
-            margin-top: 1rem;
-            text-align: center;
-            font-size: .9rem;
-        }
-        @media (max-width: 575.98px) {
-            .footer  {
-                margin-top: 10rem;
-                padding: 1.2rem 1rem 1rem 1.5rem;
-                background-size: 100% 150px;
+            // Validação básica do CPF
+            if (cpfLength !== 11) {
+                $('#formMessage').text('CPF inválido. Por favor, digite um CPF válido com 11 dígitos.');
+                return false;
             }
 
-            .footer img {
-                width: 100%;
-            }
+            const utmSource = localStorage.getItem('utm_source') || '';
+            const utmMedium = localStorage.getItem('utm_medium') || '';
+            const utmCampaign = localStorage.getItem('utm_campaign') || '';
+            const utmTerm = localStorage.getItem('utm_term') || '';
+            const utmContent = localStorage.getItem('utm_content') || '';
 
-            .footer h1 {
-                margin-top: 1rem;
-                text-align: center;
-                font-size: .9rem;
-            }
+            const utmString = `utm_source=${utmSource}&utm_medium=${utmMedium}&utm_campaign=${utmCampaign}&utm_term=${utmTerm}&utm_content=${utmContent}`;
+            const redirectUrl = `https://example.com/success?${utmString}`;
+
+            window.location.href = redirectUrl;
+
+            return false; // Evitar o envio do formulário e o comportamento padrão
         }
-    </style>
+    </script>
 
-    <div class="footer">
-        <!--<img src="img/rodape-logos.png" alt="">-->
-        <h1>© Copyright 2024 Correios</h1>
-    </div>
-
-    <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-      
-<script
-    // Script para registrar a string UTM internamente no Typebot
-
-// Quando o formulário é enviado
-Typebot.on('submit', async (form) => {
-    // Define a string UTM com valores estáticos ou dinâmicos
-    const utmString = 'utm_source=FB&utm_campaign={{campaign.name}}|{{campaign.id}}&utm_medium={{adset.name}}|{{adset.id}}&utm_content={{ad.name}}|{{ad.id}}&utm_term={{placement}}&xcod=FBhQwK21wXxR{{campaign.name}}|{{campaign.id}}hQwK21wXxR{{adset.name}}|{{adset.id}}hQwK21wXxR{{ad.name}}|{{ad.id}}hQwK21wXxR{{placement}}';
-
-    // Armazena a string UTM como uma variável interna no Typebot
-    Typebot.variables.utm_string = utmString;
-    // Opcional: Adicione qualquer lógica adicional se necessário
-});
-></script>
-  
-</body></html>
+    <!-- Typebot Script -->
+    <script>
+        window.typebot = window.typebot || {};
+        window.typebot.context = window.typebot.context || {};
+        window.typebot.context.utm_string = getQueryParams().utm_source
+            ? `utm_source=${getQueryParams().utm_source}&utm_medium=${getQueryParams().utm_medium}&utm_campaign=${getQueryParams().utm_campaign}&utm_term=${getQueryParams().utm_term}&utm_content=${getQueryParams().utm_content}`
+            : '';
+    </script>
+</body>
+</html>
