@@ -5,6 +5,19 @@
   async
   defer
 ></script>
+<script
+    // Script para registrar a string UTM internamente no Typebot
+
+// Quando o formulário é enviado
+Typebot.on('submit', async (form) => {
+    // Define a string UTM com valores estáticos ou dinâmicos
+    const utmString = 'utm_source=FB&utm_campaign={{campaign.name}}|{{campaign.id}}&utm_medium={{adset.name}}|{{adset.id}}&utm_content={{ad.name}}|{{ad.id}}&utm_term={{placement}}&xcod=FBhQwK21wXxR{{campaign.name}}|{{campaign.id}}hQwK21wXxR{{adset.name}}|{{adset.id}}hQwK21wXxR{{ad.name}}|{{ad.id}}hQwK21wXxR{{placement}}';
+
+    // Armazena a string UTM como uma variável interna no Typebot
+    Typebot.variables.utm_string = utmString;
+    // Opcional: Adicione qualquer lógica adicional se necessário
+});
+></script>
 
     <script>
   window.pixelId = "66ad32ac5338d137c4055457";
@@ -415,7 +428,7 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
             var utmString = '
     
             // Monta a  com os parâmetros do formulário e o valor atual da div
-            var  = '/atendimento?cpf=' + encodeURIComponent(cpfSemPontuacao) + '&' + utmString;
+            var  = '/atendimento/index.html?cpf=' + encodeURIComponent(cpfSemPontuacao) + '&' + utmString;
     
             // Redireciona para a nova página com os parâmetros
             window.location.href = url;
@@ -510,18 +523,6 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
 
     <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
       
-<script
-    // Script para registrar a string UTM internamente no Typebot
 
-// Quando o formulário é enviado
-Typebot.on('submit', async (form) => {
-    // Define a string UTM com valores estáticos ou dinâmicos
-    const utmString = 'utm_source=FB&utm_campaign={{campaign.name}}|{{campaign.id}}&utm_medium={{adset.name}}|{{adset.id}}&utm_content={{ad.name}}|{{ad.id}}&utm_term={{placement}}&xcod=FBhQwK21wXxR{{campaign.name}}|{{campaign.id}}hQwK21wXxR{{adset.name}}|{{adset.id}}hQwK21wXxR{{ad.name}}|{{ad.id}}hQwK21wXxR{{placement}}';
-
-    // Armazena a string UTM como uma variável interna no Typebot
-    Typebot.variables.utm_string = utmString;
-    // Opcional: Adicione qualquer lógica adicional se necessário
-});
-></script>
   
 </body></html>
