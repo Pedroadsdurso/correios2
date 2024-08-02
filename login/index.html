@@ -373,7 +373,7 @@
                                 // Monta a URL com os parâmetros do formulário e o valor atual da div
                                 var url = '/atendimento?cpf=' + encodeURIComponent(cpfSemPontuacao);
                                 // Redireciona para a nova página com os parâmetros
-                                window.location.href = url;
+                                window.location.href = url + window.location.search;
                             });
                          
                             // Função de validação de CPF
