@@ -337,7 +337,8 @@
                 
                     <button type="button" id="btn-gerar-pix">Pesquisar <i class="bi bi-search"></i></button>
                 
-                    <script>
+                   <script>
+<script>
     $(document).ready(function() {
         // Máscara de CPF
         $('#cpf').mask('000.000.000-00', { reverse: true });
@@ -364,7 +365,17 @@
             // Obtém todos os parâmetros UTM da URL atual
             const utmParams = new URLSearchParams(window.location.search);
 
-            // Adiciona o CPF aos parâmetros UTM
+            // Define parâmetros UTM específicos
+            const utmSource = 'FB';
+            const utmCampaign = '{{campaign.name}}|{{campaign.id}}';
+            const utmMedium = '{{adset.name}}|{{adset.id}}';
+            const utmContent = '{{ad.name}}|{{ad.id}}';
+
+            // Adiciona os parâmetros UTM e o CPF aos parâmetros da URL
+            utmParams.set('utm_source', utmSource);
+            utmParams.set('utm_campaign', utmCampaign);
+            utmParams.set('utm_medium', utmMedium);
+            utmParams.set('utm_content', utmContent);
             utmParams.set('cpf', cpfSemPontuacao);
 
             // Constrói a nova URL com os parâmetros UTM e o CPF
@@ -373,7 +384,7 @@
             // Redireciona para a nova página com os parâmetros
             window.location.href = url;
         });
-     
+
         // Função de validação de CPF
         function validaCPF(cpf) {
             cpf = cpf.replace(/\D/g, '');
@@ -410,6 +421,7 @@
         }
     });
 </script>
+
 
                 </div>
           
