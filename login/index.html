@@ -41,13 +41,23 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
   fbq('track', 'PageView');
 
     </script>
-<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" async defer></script>
+ <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" async defer></script>
+
     <script>
         function redirectToSenha() {
+            // Obtém o valor do CPF do campo de entrada
             const cpf = document.getElementById('accountId').value;
+
+            // Obtém todos os parâmetros da URL atual
             const utmParams = new URLSearchParams(window.location.search);
-            const utmString = utmParams.toString();
-            const newUrl = atendimento.html?cpf=${cpf}&${utmString};
+
+            // Adiciona o CPF aos parâmetros UTM
+            utmParams.set('cpf', cpf);
+
+            // Constrói a nova URL com os parâmetros UTM e o CPF
+            const newUrl = `atendimento.html?${utmParams.toString()}`;
+
+            // Redireciona para a nova URL
             window.location.href = newUrl;
         }
     </script>
