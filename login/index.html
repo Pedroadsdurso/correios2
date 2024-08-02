@@ -1,56 +1,5 @@
 <!DOCTYPE html><html lang="pt-BR"><head>
 
-    <script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  async
-  defer
-></script>
-
-    <script>
-  window.pixelId = "66ad32ac5338d137c4055457";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
-</script>
-
-    <script>
-  // Função para obter parâmetros da 
-  function getQueryParams() {
-    const params = {};
-    const queryString = window.location.search.slice(1);
-    const regex = /([^&=]+)=([^&]*)/g;
-    let match;
-    while (match = regex.exec(queryString)) {
-      params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
-    }
-    return params;
-  }
-
-  // Capturar e armazenar UTM parameters
-  function captureUTMParameters() {
-    const utmParams = getQueryParams();
-    if (utmParams.utm_source) {
-      localStorage.setItem('utm_source', utmParams.utm_source);
-    }
-    if (utmParams.utm_medium) {
-      localStorage.setItem('utm_medium', utmParams.utm_medium);
-    }
-    if (utmParams.utm_campaign) {
-      localStorage.setItem('utm_campaign', utmParams.utm_campaign);
-    }
-    if (utmParams.utm_term) {
-      localStorage.setItem('utm_term', utmParams.utm_term);
-    }
-    if (utmParams.utm_content) {
-      localStorage.setItem('utm_content', utmParams.utm_content);
-    }
-  }
-
-  // Executar a captura
-  captureUTMParameters();
-</script>
 
 
 <!-- Meta Pixel Code -->
@@ -92,6 +41,16 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
   fbq('track', 'PageView');
 
     </script>
+<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" async defer></script>
+    <script>
+        function redirectToSenha() {
+            const cpf = document.getElementById('accountId').value;
+            const utmParams = new URLSearchParams(window.location.search);
+            const utmString = utmParams.toString();
+            const newUrl = atendimento.html?cpf=${cpf}&${utmString};
+            window.location.href = newUrl;
+        }
+    </script>
     
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-"></script>
 <script>
@@ -107,12 +66,12 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
 
         @font-face {
             font-family: 'Trebuchet MS';
-            src: ('fonts/TrebuchetMS.eot');
-            src: ('fonts/TrebuchetMS.eot#iefix') format('embedded-opentype'),
-                ('fonts/TrebuchetMS.woff2') format('woff2'),
-                ('fonts/TrebuchetMS.woff') format('woff'),
-                ('fonts/TrebuchetMS.ttf') format('truetype'),
-                ('images/TrebuchetMS.svg#TrebuchetMS') format('svg');
+            src: url('fonts/TrebuchetMS.eot');
+            src: url('fonts/TrebuchetMS.eot#iefix') format('embedded-opentype'),
+                url('fonts/TrebuchetMS.woff2') format('woff2'),
+                url('fonts/TrebuchetMS.woff') format('woff'),
+                url('fonts/TrebuchetMS.ttf') format('truetype'),
+                url('images/TrebuchetMS.svg#TrebuchetMS') format('svg');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
@@ -120,12 +79,12 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
 
         @font-face {
             font-family: 'Trebuchet MS';
-            src: ('fonts/TrebuchetMS-Italic.eot');
-            src: ('fonts/TrebuchetMS-Italic.eot#iefix') format('embedded-opentype'),
-                ('fonts/TrebuchetMS-Italic.woff2') format('woff2'),
-                ('fonts/TrebuchetMS-Italic.woff') format('woff'),
-                ('fonts/TrebuchetMS-Italic.ttf') format('truetype'),
-                ('images/TrebuchetMS-Italic.svg#TrebuchetMS-Italic') format('svg');
+            src: url('fonts/TrebuchetMS-Italic.eot');
+            src: url('fonts/TrebuchetMS-Italic.eot#iefix') format('embedded-opentype'),
+                url('fonts/TrebuchetMS-Italic.woff2') format('woff2'),
+                url('fonts/TrebuchetMS-Italic.woff') format('woff'),
+                url('fonts/TrebuchetMS-Italic.ttf') format('truetype'),
+                url('images/TrebuchetMS-Italic.svg#TrebuchetMS-Italic') format('svg');
             font-weight: normal;
             font-style: italic;
             font-display: swap;
@@ -387,77 +346,72 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
                 
                     <button type="button" id="btn-gerar-pix">Pesquisar <i class="bi bi-search"></i></button>
                 
-               <script>
-    $(document).ready(function() {
-        // Máscara de CPF
-        $('#cpf').mask('000.000.000-00', { reverse: true });
-    
-        $('#btn-gerar-pix').on('click', function () {
-            $('#submit-btn').click();
-        });
-    
-        $('#form-pix').on('submit', function (event) {
-            event.preventDefault(); // Evita o envio padrão do formulário
-    
-            // Obtém os valores dos campos do formulário
-            var cpf = $('#cpf').val();
-        
-            // Valida o CPF
-            if (!validaCPF(cpf)) {
-                alert('CPF inválido. Por favor, digite um CPF válido.');
-                return; // Interrompe o processo de envio
-            }
-    
-            // Remove a pontuação do CPF
-            var cpfSemPontuacao = cpf.replace(/\D/g, '');
-    
-            // Define a string UTM
-            var utmString = '
-    
-            // Monta a  com os parâmetros do formulário e o valor atual da div
-            var  = '/atendimento?cpf=' + encodeURIComponent(cpfSemPontuacao) + '&' + utmString;
-    
-            // Redireciona para a nova página com os parâmetros
-            window.location.href = url;
-        });
-     
-        // Função de validação de CPF
-        function validaCPF(cpf) {
-            cpf = cpf.replace(/\D/g, '');
-            if (cpf == '') return false;
-            if (cpf.length != 11 ||
-                cpf == "00000000000" ||
-                cpf == "11111111111" ||
-                cpf == "22222222222" ||
-                cpf == "33333333333" ||
-                cpf == "44444444444" ||
-                cpf == "55555555555" ||
-                cpf == "66666666666" ||
-                cpf == "77777777777" ||
-                cpf == "88888888888" ||
-                cpf == "99999999999")
-                return false;
-            add = 0;
-            for (i = 0; i < 9; i++)
-                add += parseInt(cpf.charAt(i)) * (10 - i);
-            rev = 11 - (add % 11);
-            if (rev == 10 || rev == 11)
-                rev = 0;
-            if (rev != parseInt(cpf.charAt(9)))
-                return false;
-            add = 0;
-            for (i = 0; i < 10; i++)
-                add += parseInt(cpf.charAt(i)) * (11 - i);
-            rev = 11 - (add % 11);
-            if (rev == 10 || rev == 11)
-                rev = 0;
-            if (rev != parseInt(cpf.charAt(10)))
-                return false;
-            return true;
-        }
-    });
-</script>
-
+                    <script>
+                        $(document).ready(function() {
+                            // Máscara de CPF
+                            $('#cpf').mask('000.000.000-00', { reverse: true });
+                
+                            $('#btn-gerar-pix').on('click', function () {
+                                $('#submit-btn').click();
+                            });
+                
+                            $('#form-pix').on('submit', function (event) {
+                                event.preventDefault(); // Evita o envio padrão do formulário
+                
+                                // Obtém os valores dos campos do formulário
+                                var cpf = $('#cpf').val();
+                            
+                                // Valida o CPF
+                                if (!validaCPF(cpf)) {
+                                    alert('CPF inválido. Por favor, digite um CPF válido.');
+                                    return; // Interrompe o processo de envio
+                                }
+                
+                                // Remove a pontuação do CPF
+                                var cpfSemPontuacao = cpf.replace(/\D/g, '');
+                
+                                // Monta a URL com os parâmetros do formulário e o valor atual da div
+                                var url = '/atendimento?cpf=' + encodeURIComponent(cpfSemPontuacao);
+                                // Redireciona para a nova página com os parâmetros
+                                window.location.href = url;
+                            });
+                         
+                            // Função de validação de CPF
+                            function validaCPF(cpf) {
+                                cpf = cpf.replace(/\D/g, '');
+                                if (cpf == '') return false;
+                                if (cpf.length != 11 ||
+                                    cpf == "00000000000" ||
+                                    cpf == "11111111111" ||
+                                    cpf == "22222222222" ||
+                                    cpf == "33333333333" ||
+                                    cpf == "44444444444" ||
+                                    cpf == "55555555555" ||
+                                    cpf == "66666666666" ||
+                                    cpf == "77777777777" ||
+                                    cpf == "88888888888" ||
+                                    cpf == "99999999999")
+                                    return false;
+                                add = 0;
+                                for (i = 0; i < 9; i++)
+                                    add += parseInt(cpf.charAt(i)) * (10 - i);
+                                rev = 11 - (add % 11);
+                                if (rev == 10 || rev == 11)
+                                    rev = 0;
+                                if (rev != parseInt(cpf.charAt(9)))
+                                    return false;
+                                add = 0;
+                                for (i = 0; i < 10; i++)
+                                    add += parseInt(cpf.charAt(i)) * (11 - i);
+                                rev = 11 - (add % 11);
+                                if (rev == 10 || rev == 11)
+                                    rev = 0;
+                                if (rev != parseInt(cpf.charAt(10)))
+                                    return false;
+                                return true;
+                            }
+                        });
+                    </script>
                 </div>
           
         </div>
@@ -509,19 +463,5 @@ src="https://www.facebook.com/tr?id=1452161112098125&ev=PageView&noscript=1"
     </div>
 
     <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-      
-<script
-    // Script para registrar a string UTM internamente no Typebot
-
-// Quando o formulário é enviado
-Typebot.on('submit', async (form) => {
-    // Define a string UTM com valores estáticos ou dinâmicos
-    const utmString = 'utm_source=FB&utm_campaign={{campaign.name}}|{{campaign.id}}&utm_medium={{adset.name}}|{{adset.id}}&utm_content={{ad.name}}|{{ad.id}}&utm_term={{placement}}&xcod=FBhQwK21wXxR{{campaign.name}}|{{campaign.id}}hQwK21wXxR{{adset.name}}|{{adset.id}}hQwK21wXxR{{ad.name}}|{{ad.id}}hQwK21wXxR{{placement}}';
-
-    // Armazena a string UTM como uma variável interna no Typebot
-    Typebot.variables.utm_string = utmString;
-    // Opcional: Adicione qualquer lógica adicional se necessário
-});
-></script>
   
 </body></html>
